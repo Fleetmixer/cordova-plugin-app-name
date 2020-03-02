@@ -1,6 +1,6 @@
 {
-  "name": "cordova-plugin-app-name",
-  "version": "1.0.7",
+  "name": "@tecnosolve/cordova-plugin-app-name",
+  "version": "1.1.0",
   "description": "A Cordova/PhoneGap plugin that allows you to give you app a name with spaces and special characters and stuff.",
   "cordova": {
     "id": "cordova-plugin-app-name",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/blakgeek/cordova-plugin-app-name.git"
+    "url": "https://github.com/Tecnosolve/cordova-plugin-app-name.git"
   },
   "bugs": {
-    "url": "https://github.com/blakgeek/cordova-plugin-app-name/issues"
+    "url": "https://github.com/Tecnosolve/cordova-plugin-app-name/issues"
   },
-  "homepage": "https://github.com/blakgeek/cordova-plugin-app-name",
+  "homepage": "https://github.com/Tecnosolve/cordova-plugin-app-name",
   "keywords": [
     "ecosystem:cordova",
     "cordova-android",
@@ -29,6 +29,8 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "cordova-common": "^3.2.1",
+    "cordova-lib": "^9.0.1",
     "semver": "^6.3.0",
     "xml2js": "^0.4.16"
   },
