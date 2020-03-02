@@ -58,9 +58,9 @@ module.exports = function (context) {
 function getConfigParser(context, config) {
 
     if (semver.lt(context.opts.cordova.version, '5.4.0')) {
-        ConfigParser = context.requireCordovaModule('cordova-lib/src/ConfigParser/ConfigParser');
+        ConfigParser = require('cordova-lib/src/ConfigParser/ConfigParser');
     } else {
-        ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
+        ConfigParser = require('cordova-common/src/ConfigParser/ConfigParser');
     }
 
     return new ConfigParser(config);
