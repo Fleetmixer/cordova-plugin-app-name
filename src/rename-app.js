@@ -42,6 +42,19 @@ module.exports = function (context) {
         gradleName = gradleName.replace(/\.*$/, '');
         console.log('Change GradleName from ' + name + ' to ' + gradleName);
         fs.writeFileSync(gradleNamePath, 'rootProject.name = ' + gradleName);
+        stringsXml = fs.readFileSync(stringsPath, 'UTF-8');
+        parser.parseString(stringsXml, function (err, data) {
+
+            data.resources.string.forEach(function (string) {
+
+                if (string.$.name === 'app_name') {
+                    var tmp = name.replace(/^\.*/, '');
+                    tmp = tmp.replace(/\.*$/, '');
+                    string._ = tmp.replace(/'/g, "\\'");;
+                }
+            });
+
+            fs.writeFileSync(stringsPath, builder.buildObject(data));
     }
 };
 
