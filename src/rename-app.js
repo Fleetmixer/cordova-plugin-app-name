@@ -24,7 +24,7 @@ module.exports = function (context) {
     const basePath = usesNewStructure ? path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main') : path.join(projectRoot, 'platforms', 'android');
     var configPath = path.join(basePath, 'res', 'xml', 'config.xml');
     var stringsPath = path.join(basePath, 'res', 'values', 'strings.xml');
-    var gradleNamePath ? path.join(projectRoot, 'platforms', 'android', 'cdv-gradle-name.gradle');
+    var gradleNamePath = path.join(projectRoot, 'platforms', 'android', 'cdv-gradle-name.gradle');
     var stringsXml, name;
 
     // make sure the android config file exists
