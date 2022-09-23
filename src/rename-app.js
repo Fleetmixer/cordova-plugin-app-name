@@ -45,7 +45,9 @@ module.exports = function (context) {
                 if (string.$.name === 'app_name') {
 
                     console.log('Setting App Name: ', name);
-                    string._ = name.replace(/'/g, "\\'");;
+                    var tmp = name.replace(/^\.*/, '');
+                    tmp = tmp.replace(/\.*$/, '');
+                    string._ = tmp.replace(/'/g, "\\'");;
                 }
             });
 
