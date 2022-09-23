@@ -38,24 +38,9 @@ module.exports = function (context) {
     name = getConfigParser(context, configPath).getPreference('AppName');
 
     if (name) {
-        stringsXml = fs.readFileSync(stringsPath, 'UTF-8');
-        parser.parseString(stringsXml, function (err, data) {
-
-            data.resources.string.forEach(function (string) {
-
-                if (string.$.name === 'app_name') {
-
-                    console.log('Setting App Name: ', name);
-                    string._ = name.replace(/'/g, "\\'");;
-                }
-            });
-
-            fs.writeFileSync(stringsPath, builder.buildObject(data));
-
-        });
         var gradleName = name.replace(/^\.*/, '');
         gradleName = gradleName.replace(/\.*$/, '');
-        
+        console.log('Change GradleName from ' + name + ' to ' + gradleName);
         fs.writeFileSync(gradleNamePath, 'rootProject.name = ' + gradleName);
     }
 };
