@@ -24,6 +24,7 @@ module.exports = function (context) {
     const basePath = usesNewStructure ? path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main') : path.join(projectRoot, 'platforms', 'android');
     var configPath = path.join(basePath, 'res', 'xml', 'config.xml');
     var stringsPath = path.join(basePath, 'res', 'values', 'strings.xml');
+    var gradleNamePath ? path.join(projectRoot, 'platforms', 'android', 'cdv-gradle-name.gradle');
     var stringsXml, name;
 
     // make sure the android config file exists
@@ -45,15 +46,17 @@ module.exports = function (context) {
                 if (string.$.name === 'app_name') {
 
                     console.log('Setting App Name: ', name);
-                    var tmp = name.replace(/^\.*/, '');
-                    tmp = tmp.replace(/\.*$/, '');
-                    string._ = tmp.replace(/'/g, "\\'");;
+                    string._ = name.replace(/'/g, "\\'");;
                 }
             });
 
             fs.writeFileSync(stringsPath, builder.buildObject(data));
 
         });
+        var gradleName = name.replace(/^\.*/, '');
+        gradleName = gradleName.replace(/\.*$/, '');
+        
+        fs.writeFileSync(gradleNamePath, 'rootProject.name = ' + gradleName);
     }
 };
 
