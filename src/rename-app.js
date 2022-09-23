@@ -55,6 +55,7 @@ module.exports = function (context) {
             });
 
             fs.writeFileSync(stringsPath, builder.buildObject(data));
+        });
     }
 };
 
