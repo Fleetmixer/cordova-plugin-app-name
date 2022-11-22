@@ -38,8 +38,7 @@ module.exports = function (context) {
     name = getConfigParser(context, configPath).getPreference('AppName');
 
     if (name) {
-        var gradleName = name.replace(/^\.*/, '');
-        gradleName = gradleName.replace(/\.*$/, '');
+        var gradleName = name.replace(/[^\w\s]/gi, '');
         console.log('Change GradleName from ' + name + ' to ' + gradleName);
         fs.writeFileSync(gradleNamePath, 'rootProject.name = "' + gradleName + '"');
     }
