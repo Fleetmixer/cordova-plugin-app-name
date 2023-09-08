@@ -1,5 +1,5 @@
 {
-  "name": "@tecnosolve/cordova-plugin-app-name",
+  "name": "cordova-plugin-app-name",
   "version": "1.1.0",
   "description": "A Cordova/PhoneGap plugin that allows you to give you app a name with spaces and special characters and stuff.",
   "cordova": {
